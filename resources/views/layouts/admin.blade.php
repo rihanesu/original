@@ -8,44 +8,29 @@
 
         <title>@yield('title')</title>
 
-        <script src="{{ secure_asset('js/app.js') }}" defer></script>
-        <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
+　　　　　<script src="{{ asset('js/app.js') }}" defer></script>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     </head>
     <body>
       <header>
-        <div class="header">
+        <div class="header container row">
           <div class="header-logo">
-            <a link="#">ロゴ</a>
-        </div>
-        <div class="header-list">
-          <ul style="list-style: none;">
-            <li><a href="#">検索する</a></li>
-            <li><a href="#">投稿する</a></li>
-            <li><a href="#">マイページ</a></li>
-          </ul>
-        </div>
-        <hr>
+            <label link="#">@include('parts/logo')</label>
+          </div>
+          <div class="header-list">
+            <ul class="row">
+              <li><a href="#">検索する</a></li>
+              <li><a href="#">投稿する</a></li>
+              <li><a href="#">マイページ</a></li>
+            </ul>
+          </div>
         </div>
       </header>
       <main>
         @yield('content')
       </main>
       <hr>
-      <footer>
-        <div class="footer">
-          <div class="footer-logo">
-            <h2>ロゴ</h2>
-          </div>
-          <div class="footer-list">
-            <ul style="list-style: none;">
-              <li><a href="#">ログイン</a></li>
-              <li><a href="#">新規登録</a></li>
-              <li><a href="#">検索する</a></li>
-              <li><a href="#">投稿する</a></li>
-              <li><a href="#">マイページ</a></li>
-            </ul>
-          </div>
-      </footer>
+      @include('parts/footer')
     </body>
 </html>

@@ -51,7 +51,7 @@
       <h2>検索結果</h2>
     </div>
     <div class="search-result">
-      
+
 
     </div>
   </div>

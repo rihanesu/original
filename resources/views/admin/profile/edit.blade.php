@@ -34,7 +34,7 @@
       <div class="">
         <label>ニックネーム</label>
         <input type="text" value=" ">
-        <p class="nickname">※ニックネームはこのサイト上で表示される、あなたの名前です</p>
+        <p class="nickname-about">※ニックネームはこのサイト上で表示される、あなたの名前です</p>
       </div>
       <input type="submit" value="編集を完了する">
     </div>
