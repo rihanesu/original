@@ -2,50 +2,62 @@
 @section('title', '自分の投稿')
 
 @section('content')
-  <div　class="container">
-    <div class="page-title">
-      <h1>タイトル</h1>
-    </div>
-    <div class="image-area">
-      <div class="image">
-        <img src="">
-      </div>
-    </div>
-    <div class="information-area">
-      <div class="information">
-        <label>都道府県</label>
-          <input type="submit" value=" ">
-        <br>
-        <label>市区町村</label>
-          <input type="submit" value=" ">
-        <br>
-        <label>カテゴリー</label>
-          <input type="submit" value=" ">
-          <input type="submit" value=" ">
-        <br>
-        <label>タグ</label>
-          <input type="submit" value=" ">
-          <input type="submit" value=" ">
-      </div>
-    </div>
-    <div class="text-area">
-
-    </div>
-    <div class="">
-      <label>閲覧数</label>
-        <div>
-
+    <div　class="container">
+        <div class="row justify-content-center mx-auto col-md-12">
+            <div class="post-details">
+                <div class="post-title col text-center mb-5">
+                    <h1>タイトル</h1>
+                </div>
+                <div class="post-top row col-md-12 mb-5">
+                    <div class="image-area col-md-6 ml-5">
+                        <div class="image">
+                            <img src="{{ asset('image/top-image1.jpg') }}">
+                        </div>
+                    </div>
+                    <div class="information-area col-md-5 ml-4">
+                        <div class="information">
+                            <div>
+                                <label>都道府県　：</label>
+                                <input type="text" value=" ">
+                            </div>
+                            <div>
+                                <label>市区町村　：</label>
+                                <input type="text" value=" ">
+                            </div>
+                            <div>
+                                <label>カテゴリー：</label>
+                                <input type="text" value=" ">
+                                <input type="text" value=" ">
+                            </div>
+                            <div>
+                                <label>タグ　　　：</label>
+                                <input type="text" value=" ">
+                                <input type="text" value=" ">
+                            </div>
+                            <div class="mt-4">
+                                <div class="text-area">
+                                    <textarea rows="8" cols="54">
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-under row col-md-12">
+                    <div class="post-counter col-md-8 ml-5">
+                        <div class="post-views">
+                            <label>閲覧数</label>
+                        </div>
+                        <div class="post-favorite">
+                            <label>お気に入り数</label>
+                        </div>
+                    </div>
+                    <div class="button-area col-md-3 justify-content-around">
+                        <input type="submit" value="削除する">
+                        <input type="submit" value="コメントを見る">
+                    </div>
+                </div>
+            </div>
         </div>
-      <label>お気に入り数</label>
-        <div>
-
-        </div>
     </div>
-    <div class="button-area">
-      <input type="submit" value="削除">
-      <input type="submit" value="コメント">
-    </div>
-
-
-  </div>
 @endsection

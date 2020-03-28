@@ -12,25 +12,25 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     </head>
-    <body>
-      <header>
-        <div class="header container row">
-          <div class="header-logo">
-            <label link="#">@include('parts/logo')</label>
-          </div>
-          <div class="header-list">
-            <ul class="row">
-              <li><a href="#">検索する</a></li>
-              <li><a href="#">投稿する</a></li>
-              <li><a href="#">マイページ</a></li>
-            </ul>
-          </div>
-        </div>
-      </header>
-      <main>
-        @yield('content')
-      </main>
-      <hr>
-      @include('parts/footer')
-    </body>
-</html>
+        <body>
+            <header>
+                <div class="header container row align-items-center mb-5">
+                    <div class="header-logo col-md-2">
+                        @include('parts/logo')
+                    </div>
+                    <div class="header-list col-md-10">
+                        <ul class="row justify-content-around">
+                            <li><a href="#">検索する</a></li>
+                            <li><a href="#">投稿する</a></li>
+                            <li><a href="#">マイページ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+        <main>
+            @yield('content')
+        </main>
+        <hr>
+            @include('parts/footer')
+        </body>
+    </html>

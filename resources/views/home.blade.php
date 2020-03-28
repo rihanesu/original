@@ -8,100 +8,117 @@
 
         <title>トップページ</title>
 
-　　　　　<script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/app.js') }}" defer></script>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     </head>
     <body>
-        <header>
-            <div class="header-container-row">
-                <div class="header-logo">
-                    <img src="{{ asset('resources/views/logo2.png') }}">
+        <div class="container mx-auto">
+            <header>
+                <div class="header row align-items-center">
+                    <div class="header-logo col-md-2" >
+                        <img src="{{ asset('image/logo1.png') }}">
+                    </div>
+                    <div class="header-login col-md-2 ml-auto">
+                        <ul class="row justify-content-around">
+                            @guest
+                                <li><a href="">ログイン</a></li>
+                                <li><a href="">新規登録</a></li>
+                            @else
+                                <li><a href="">{{ Auth::user()->name }}さん</a></li>
+                                <li><a href="{{ route('logout') }}">{{ __('Logout') }}</a></li>
+                            @endguest
+                        </ul>
+                    </div>
                 </div>
-            <div class="header-login">
-                <label link="#">ログイン</label>
-                <label link="#">新規登録</label>
-            </div>
-            <div class="header-list">
-                <ul class="row">
-                    <li><a href="#">検索する</a></li>
-                    <li><a href="#">投稿する</a></li>
-                    <li><a href="#">マイページ</a></li>
-                </ul>
-            </div>
+                <nav class="header-list">
+                    <ul class="row justify-content-around col-md-12">
+                        <li><a href="#">検索する</a></li>
+                        <li><a href="#">投稿する</a></li>
+                        <li><a href="#">マイページ</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <div class="container">
+                    <div class="top-images mb-5">
+                        <div class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{{ asset('image/top-image1.jpg') }}">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{{ asset('image/top-image2.jpg') }}">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{{ asset('image/top-image3.jpg') }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="top-page-content row">
+                        <div class="left-content col-md-6">
+                            <div class="content-introduction">
+                                <p>「まっぺん」は各地の特色を投稿する為のサービスです。<br>
+                                    スポットやグルメなど、あなたの知っていることを<br>
+                                    ぜひ投稿してみて下さい！<br>
+                                    まずは、他の方の投稿を見てはいかがでしょうか？<br>
+                                </p>
+                            </div>
+                            <div class="top-page-search">
+                                @include('parts/search')
+                            </div>
+                        </div>
+                        <div class="right-content col-md-6 row">
+                            <div class="content-others">
+                                <div class="content-others-title mb-4 col text-center">
+                                    <h4>他の方の投稿です</h4>
+                                </div>
+                            <div class="content-others-list col-md-12 row">
+                                <img src="{{ asset('image/top-image1.jpg') }}" class="col-md-4">
+                                <div class="content-about col-md-8">
+                                    <a href="">投稿のタイトル</a><br>
+                                    <a href="">〇〇県</a>
+                                    <a href="">〇〇市</a><br>
+                                    <a href="">カテゴリー1</a>
+                                    <a href="">カテゴリー2</a><br>
+                                    <a href="">タグ1</a>
+                                    <a href="">タグ2</a><br>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="content-others-list col-md-12 row">
+                                <img src="{{ asset('image/top-image1.jpg') }}" class="col-md-4">
+                                <div class="content-about col-md-8">
+                                    <a href="">投稿のタイトル</a><br>
+                                    <a href="">〇〇県</a>
+                                    <a href="">〇〇市</a><br>
+                                    <a href="">カテゴリー1</a>
+                                    <a href="">カテゴリー2</a><br>
+                                    <a href="">タグ1</a>
+                                    <a href="">タグ2</a><br>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="content-others-list col-md-12 row">
+                                <img src="{{ asset('image/top-image1.jpg') }}" class="col-md-4">
+                                <div class="content-about col-md-8">
+                                    <a href="">投稿のタイトル</a><br>
+                                    <a href="">〇〇県</a>
+                                    <a href="">〇〇市</a><br>
+                                    <a href="">カテゴリー1</a>
+                                    <a href="">カテゴリー2</a><br>
+                                    <a href="">タグ1</a>
+                                    <a href="">タグ2</a><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer>
+            @include('parts/footer')
+            </footer>
         </div>
-        </header>
-        <main>
-            <div class="container">
-            <div class="top-images">
-
-            </div>
-            <div class="top-page-content">
-                <div class="left-content">
-                    <div class="content-introduction">
-                        <p>このアプリは〜...(この文は考える)</p>
-                    </div>
-                    <div class="top-page-search">
-                        <div class="top-search-form">
-                            <label>キーワードで検索</label>
-                            <input type="search">
-                        </div>
-                        <div class="top-search-form">
-                            <label>地名で検索</label>
-                            <input type="search" value="">
-                            <input type="search" value="">
-                        </div>
-                        <div class="top-search-form">
-                            <label>カテゴリーで検索</label>
-                            <div>
-                                <select>
-                                    <option value="spot">スポット</option>
-                                    <option value="gourmet">グルメ</option>
-                                </select>
-                                <select>
-                                    <option value="anyone">誰でも！</option>
-                                    <option value="family">ファミリー向け</option>
-                                    <option value="family">一人でも</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="top-search-form">
-                            <label>タグで検索</label>
-                            <input type="search" value="">
-                            <input type="search" value="">
-                        </div>
-                        <input type="submit" value="検索する">
-                    </div>
-                </div>
-                <div class="right-content">
-                    <div class="content-others">
-                        <div class="content-others-title">
-                            <h4>他の人が見ています</h4>
-                        </div>
-                        <div class="content-others-list">
-                            <img="">
-                            <div class="content-about">
-
-                            </div>
-                        </div>
-                        <div class="content-others-list">
-                            <img="">
-                            <div class="content-about">
-
-                            </div>
-                        </div>
-                        <div class="content-others-list">
-                            <img="">
-                            <div class="content-about">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <footer>
-        @include('parts/footer')
-        </footer>
     </body>
 </html>
