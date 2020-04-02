@@ -3,59 +3,71 @@
 
 @section('content')
     <div　class="container">
-        <div class="row justify-content-center mx-auto col-md-12">
-            <div class="post-details">
-                <div class="post-title col text-center mb-5">
-                    <h1>タイトル</h1>
-                </div>
-                <div class="post-top row col-md-12 mb-5">
-                    <div class="image-area col-md-6 ml-5">
-                        <div class="image">
-                            <img src="{{ asset('image/top-image1.jpg') }}">
+        <div class="row" style="height: 500px;">
+            <div class="post-details col-md-12 col text-center">
+                <form action="{{ action('Admin\UserController@update') }}" method="post" enctype="multipart/form-data">
+                    @if (count($errors) > 0)
+                        <ul>
+                            @foreach($errors->all() as $e)
+                                <li>{{ $e }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+                    <div class="form-group row">
+                        <label class="col-md-3" for="title">タイトル</label>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" name="title" value="{{ $post_form->title }}">
                         </div>
                     </div>
-                    <div class="information-area col-md-5 ml-4">
-                        <div class="information">
-                            <div>
-                                <label>都道府県　：</label>
-                                <input type="text" value=" ">
-                            </div>
-                            <div>
-                                <label>市区町村　：</label>
-                                <input type="text" value=" ">
-                            </div>
-                            <div>
-                                <label>カテゴリー：</label>
-                                <input type="text" value=" ">
-                                <input type="text" value=" ">
-                            </div>
-                            <div>
-                                <label>タグ　　　：</label>
-                                <input type="text" value=" ">
-                                <input type="text" value=" ">
-                            </div>
-                            <div class="mt-4">
-                                <div class="text-area">
-                                    <textarea rows="8" cols="54">
-                                    </textarea>
-                                </div>
-                            </div>
+                    <div class="form-group row">
+                        <label class="col-md-3" for="prefecture">都道府県</label>
+                        <div class="col-md-7">
+                            <select type="text" class="form-control" name="prefecture" value="{{ $post_form->prefecture }}">
+                                @include('parts/area_search')
+                            </select>
                         </div>
                     </div>
-                </div>
-                <div class="post-under row col-md-12">
-                    <div class="post-counter col-md-8 ml-5">
-                        <div class="post-views">
-                            <label>閲覧数</label>
-                        </div>
-                        <div class="post-favorite">
-                            <label>お気に入り数</label>
+                    <div class="form-group row">
+                        <label class="col-md-3" for="category">カテゴリー</label>
+                        <div class="col-md-7">
+                            <select type="text" class="form-control" name="category" value="{{ $post_form->category}}">
+                                <option value="スポット"/>スポット</option>
+                                <option value="グルメ">グルメ</option>
+                                <option value="誰でも">誰でも</option>
+                                <option value="ファミリー向け">ファミリー向け</option>
+                                <option value="一人でも">一人でも</option>
+                            </select>
                         </div>
                     </div>
-                    <div class="button-area col-md-3 justify-content-around">
-                        <input type="submit" value="削除する">
-                        <input type="submit" value="コメントを見る">
+                    <div class="form-group row">
+                        <label class="col-md-3" for="body">本文</label>
+                        <div class="col-md-7">
+                            <textarea class="form-control" name="body" rows="3">
+                                {{ $post_form->body }}
+                            </textarea>
+                        </div>
                     </div>
+                    <div class="form-group row">
+                        <label class="col-md-3" for="image">画像</label>
+                        <div class="col-md-5">
+                            <input type="file" class="form-control-file" name="image">
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="remove" value="true">画像を削除
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-10 mt-5">
+                            <input type="hidden" name="id" value="{{ $post_form->id }}">
+                            {{ csrf_field() }}
+                            <input type="submit" value="更新">
+                        </div>
+                    </div>
+                </form>
+                <div class="float-right col-md-5 mt-5">
+                    <a href="{{ action('Admin\UserController@delete', ['id' => $post_form->id]) }}">削除する</a>
                 </div>
             </div>
         </div>

@@ -14,15 +14,15 @@
     </head>
         <body>
             <header>
-                <div class="header container row align-items-center mb-5">
+                <div class="header container row align-items-center mb-5 col-md-12 mx-auto">
                     <div class="header-logo col-md-2">
                         @include('parts/logo')
                     </div>
                     <div class="header-list col-md-10">
                         <ul class="row justify-content-around">
-                            <li><a href="#">検索する</a></li>
-                            <li><a href="#">投稿する</a></li>
-                            <li><a href="#">マイページ</a></li>
+                            <li><a href="{{ asset('search') }}">検索する</a></li>
+                            <li><a href="{{ asset('admin/post/create') }}">投稿する</a></li>
+                            <li><a href="{{ asset('admin/user/mypage') }}">マイページ</a></li>
                         </ul>
                     </div>
                 </div>

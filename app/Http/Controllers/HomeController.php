@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class HomeController extends Controller
 {
@@ -25,4 +26,12 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function home()
+    {
+        $posts = Post::orderBy('id', 'desc')->take(3)->get();
+
+        return view('home', ['posts' => $posts]);
+    }
+
 }
