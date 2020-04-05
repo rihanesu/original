@@ -26,17 +26,20 @@
                 <h3>検索結果</h3>
             </div>
             <div class="search-result overflow-auto" style="height:400px">
-                @foreach ($posts as $post)
+                @foreach ((array)$posts as $post)
                     <div class="search-result-list col-md-12 row">
-                        @if ($post->image_path = null)
-                            <p class="col-md-4">no_image</p>
-                        @else
+                        @if ($posts->image_path)
                             <img src="{{ asset('image/top-image1.jpg') }}" class="col-md-4">
+                        @else
+                            <div class="col-md-4">
+                                @include('parts/no_image')
+                            </div>
                         @endif
                         <div class="search-about col-md-8">
                             <label>{{ ($cond_title) }}</label><br>
                             <label>{{ ($cond_prefecture) }}</label><br>
                             <label>{{ ($cond_category) }}</label><br>
+                            <a href="{{ action('Admin\PostController@details', ['id' => $posts->id]) }}">見に行く</a>
                         </div>
                     </div>
                     <hr>
@@ -45,5 +48,4 @@
         </div>
     </div>
 </div>
-
 @endsection

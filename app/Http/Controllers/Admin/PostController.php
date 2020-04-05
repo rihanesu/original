@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
+use App\Comment;
 
 class PostController extends Controller
 {
@@ -30,7 +31,7 @@ class PostController extends Controller
 
         $post->fill($form)->save();
 
-        return redirect('admin/post/create');
+        return redirect('admin/user/mypage');
     }
 
     public function index(Request $request)
@@ -45,12 +46,7 @@ class PostController extends Controller
         return view('admin/user/mypage', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
 
-    public function comment()
-    {
-        return view ('admin/post/comment');
-    }
-
-    public function details()
+    public function details(Request $request)
     {
         $post = Post::find($request->id);
         if (empty($post)) {
@@ -59,22 +55,14 @@ class PostController extends Controller
         return view ('admin/post/details', ['post_form' => $post]);
     }
 
-    public function update(Request $request)
+    public function comment(Request $request)
     {
-        $this->validate($request, Post::$rules);
-        $post = Post::find($request->id);
-        $post_form = $request->all();
-        if (isset($post_form['image'])) {
-            $path = $request->file('image')->store('public/image');
-            $post->image_path = basename($path);
-            unset($post_form['image']);
-        } elseif (isset($request->remove)) {
-            $post->image_path = null;
-            unset($post_form['remove']);
-        }
-        unset($post_form['_token']);
-        $post->fill($post_form)->save();
+        $comment = new Comment;
+        $form = $request->all();
 
-        return redirect('admin/user/mypage');
+        $comments = Comment::get();
+
+        return back('admin/post/details', ['comments' => $comments])->withInput();
     }
+
 }

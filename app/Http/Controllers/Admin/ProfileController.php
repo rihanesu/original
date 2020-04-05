@@ -14,7 +14,7 @@ class ProfileController extends Controller
       return view ('admin/profile/create');
     }
 
-    public function edit(Request $request)
+    public function edit(Request $request, User $user)
     {
         $user = User::find($request->id);
         if (empty($user)) {

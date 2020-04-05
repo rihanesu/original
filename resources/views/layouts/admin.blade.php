@@ -12,25 +12,26 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     </head>
-        <body>
-            <header>
-                <div class="header container row align-items-center mb-5 col-md-12 mx-auto">
-                    <div class="header-logo col-md-2">
-                        @include('parts/logo')
-                    </div>
-                    <div class="header-list col-md-10">
-                        <ul class="row justify-content-around">
-                            <li><a href="{{ asset('search') }}">検索する</a></li>
-                            <li><a href="{{ asset('admin/post/create') }}">投稿する</a></li>
-                            <li><a href="{{ asset('admin/user/mypage') }}">マイページ</a></li>
-                        </ul>
-                    </div>
+    <body>
+        <header>
+            <div class="header container row align-items-center mb-5 col-md-12 mx-auto">
+                <div class="header-logo col-md-2">
+                    @include('parts/logo')
                 </div>
-            </header>
+                <div class="header-list col-md-10">
+                    <ul class="row justify-content-around">
+                        <li><a href="{{ asset('search') }}">検索する</a></li>
+                        <li><a href="{{ asset('admin/post/create') }}">投稿する</a></li>
+                        <li><a href="{{ asset('admin/user/mypage') }}">マイページ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
         <main>
             @yield('content')
         </main>
-        <hr>
+        <footer>
             @include('parts/footer')
-        </body>
-    </html>
+        </footer>
+    </body>
+</html>

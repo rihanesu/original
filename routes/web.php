@@ -24,7 +24,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('post/details', 'Admin\PostController@details');
     Route::get('post/comment', 'Admin\PostController@comment');
     Route::get('profile/edit', 'Admin\ProfileController@edit');
-    Route::get('user/mypage', 'Admin\UserController@mypage');
     Route::get('user/mypost', 'Admin\UserController@mypost');
     Route::post('user/mypost', 'Admin\UserController@update');
     Route::get('user/delete', 'Admin\UserController@delete');

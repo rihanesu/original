@@ -52,11 +52,6 @@
                         <div class="col-md-5">
                             <input type="file" class="form-control-file" name="image">
                         </div>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="remove" value="true">画像を削除
-                            </label>
-                        </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-md-10 mt-5">
@@ -67,7 +62,7 @@
                     </div>
                 </form>
                 <div class="float-right col-md-5 mt-5">
-                    <a href="{{ action('Admin\UserController@delete', ['id' => $post_form->id]) }}">削除する</a>
+                    @include('parts/delete')
                 </div>
             </div>
         </div>

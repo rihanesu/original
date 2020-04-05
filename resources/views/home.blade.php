@@ -19,7 +19,7 @@
                     <div class="header-logo col-md-2" >
                         <img src="{{ asset('image/logo1.png') }}">
                     </div>
-                    <div class="header-login col-md-2 ml-auto">
+                    <div class="header-login col-md-4 ml-auto">
                         <ul class="row justify-content-around">
                             @guest
                                 <li><a href="{{ asset('login') }}">ログイン</a></li>
@@ -64,6 +64,7 @@
                             <div class="content-introduction mt-5">
                                 <h4>「まっぺん」は各地の特色を投稿する為の<br>
                                     サービスです。<br>
+                                    <br>
                                     スポットやグルメなど、あなたの知っている<br>
                                     ことを、ぜひ投稿してみて下さい！<br>
                                     <br>
@@ -73,25 +74,31 @@
                             </div>
                         </div>
                         <div class="right-content col-md-7 row">
-                            <form action="{{ action('HomeController@home') }}" method="get" class="col-md-12">
+                            <form action="{{ action('HomeController@home') }}" method="get" enctype="multipart/form-data" class="col-md-12">
                                 <div class="content-others-title mb-4 col text-center">
-                                    <h4>他の方の投稿です</h4>
+                                    <h4>最新の投稿です</h4>
                                 </div>
                                 <div class="border border-dark">
                                 <br>
                                 <div class="overflow-auto border" style="height:500px">
                                     @foreach ($posts as $post)
                                         <div class="col-md-12 row">
-                                            @if ($post->image_path)
-                                                <img src="{{ asset('storage/image/' . $post->image_path) }}" class="col-md-4">
-                                            @else
-                                                <p class="col-md-4">no_image</p>
-                                            @endif
-                                            <div class="content-about col-md-8 col text-left">
-                                                <label>タイトル：{{ $post->title }}</label><br>
-                                                <label>県：{{ $post->prefecture }}</label><br>
-                                                <label>カテゴリー：{{ $post->category }}</label><br>
-                                                <label>本文：{{ $post->body }}</label>
+                                            <div class="col-md-12 row">
+                                                <a href="{{ action('Admin\PostController@details', ['id' => $post->id]) }}" class="col-md-12">
+                                                    @if ($post->image_path)
+                                                        <img src="{{ asset('storage/image/' . $post->image_path) }}" class="col-md-4">
+                                                    @else
+                                                        <div class="col-md-4">
+                                                            @include('parts/no_image')
+                                                        </div>
+                                                    @endif
+                                                    <div class="content-about col-md-8 col text-left">
+                                                        <label>タイトル：{{ $post->title }}</label><br>
+                                                        <label>県：{{ $post->prefecture }}</label><br>
+                                                        <label>カテゴリー：{{ $post->category }}</label><br>
+                                                        <label>本文：{{ $post->body }}</label>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                         <hr>

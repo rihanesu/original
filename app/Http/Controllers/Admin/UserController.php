@@ -12,14 +12,14 @@ class UserController extends Controller
 {
     public function add()
     {
-      return view ('admin/user/mypage');
+      return view('admin/user/mypage');
     }
 
     public function mypage()
     {
         $posts = Post::get();
 
-        return view ('admin/user/mypage',['posts' => $posts]);
+        return view('admin/user/mypage',['posts' => $posts]);
     }
 
     public function mypost(Request $request)
@@ -28,7 +28,7 @@ class UserController extends Controller
         if (empty($post)) {
             abort(404);
         }
-        return view ('admin/user/mypost', ['post_form' => $post]);
+        return view('admin/user/mypost', ['post_form' => $post]);
     }
 
     public function update(Request $request)

@@ -16,7 +16,7 @@
                     @endif
                     <div class="form-group row">
                         <label class="col-md-3" for="title">タイトル</label>
-                        <input type="text" class="form-control col-md-8" name="title" value="{{ old('title') }}">
+                        <input type="text" class="form-control col-md-8" name="title" value="{{ old('title') }}" maxlength="100" placeholder="全角50文字まで入力可能です">
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3" for="prefecture">都道府県</label>
@@ -37,7 +37,7 @@
                     <div class="form-group row">
                         <label class="col-md-3" for="body">本文</label>
                         <div class="col-md-8">
-                            <textarea class="form-control" name="body" rows="3">{{ old('body') }}</textarea>
+                            <textarea class="form-control" name="body" rows="3" maxlength="400" placeholder="全角200文字まで入力可能です">{{ old('body') }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
