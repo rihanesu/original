@@ -35,4 +35,4 @@ Route::get('search', 'SearchController@search');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@home')->name('home');
+Route::get('/', 'HomeController@home')->name('home');

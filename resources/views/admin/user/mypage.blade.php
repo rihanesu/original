@@ -5,15 +5,15 @@
     <div　class="container">
         <div class="mypage col text-center mx-auto col-md-8">
             <div class="page-title mb-5">
-                <h3>{{ Auth::user()->nickname }}さんのマイページ</h3>
+                <h1>{{ Auth::user()->nickname }}さんのマイページ</h1>
             </div>
             <form action="{{ action('Admin\UserController@mypage') }}" method="get">
                 <div class="post-history-title mb-5">
-                    <h5>投稿履歴</h5>
+                    <h3>投稿履歴</h3>
                 </div>
-                <div class="border border-dark">
+                <div class="bg-light">
                 <br>
-                    <div class="overflow-auto border" style="height:500px">
+                    <div class="overflow-auto" style="height:500px">
                         @foreach ($posts as $post)
                             <div class="col-md-12 row">
                                 @if ($post->image_path)
@@ -29,7 +29,7 @@
                                     <label>カテゴリー：{{ $post->category }}</label><br>
                                     <label>本文：{{ $post->body }}</label>
                                     <div>
-                                        <a href="{{ action('Admin\UserController@mypost', ['id' => $post->id]) }}">編集</a>
+                                        <a href="{{ action('Admin\UserController@mypost', ['id' => $post->id]) }}" role="button" class="btn btn-primary btn-sm">編集</a>
                                     </div>
                                 </div>
                             </div>
@@ -38,10 +38,10 @@
                     </div>
                 </div>
             </form>
-            <hr>
+            <br>
             <div class="mypage-profile">
                 <div class="mypage-profile-title mb-5">
-                    <h5>さんのプロフィール</h5>
+                    <h3>{{ Auth::user()->nickname }}さんのプロフィール</h3>
                 </div>
                 <div class="mypage-profile-form">
                     <div class="profile-area">
@@ -54,7 +54,7 @@
                         <p class="nickname_about">※ニックネームはこのサイト上で表示される、あなたの名前です</p>
                     </div>
                     <div>
-                        {{-- <a href="{{ action('Admin\ProfileController@edit', ['id' => $user->id]) }}">編集する</a> --}}
+                        <a href="{{ action('Admin\ProfileController@edit', ['id' => Auth::user()->id]) }}" role="button" class="btn btn-primary">再設定をする</a>
                     </div>
                 </div>
             </div>

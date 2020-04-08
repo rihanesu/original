@@ -4,11 +4,11 @@
 @section('content')
     <div　class="container">
         <div class="row">
-            <form action="Admin\PostController@details" method="get" enctype="multipart/form-data" class="col-md-12">
-                <div class="col-md-12 col text-center">
+            <form action="Admin\PostController@details" method="get" enctype="multipart/form-data" class="col-md-12 mx-auto">
+                <div class="col text-center">
                     <div class="form-group row">
                         <div class="col-md-12">
-                            <h1>{{ $post_form->title }}</h1>
+                            <h2 class="col-md-10 mx-auto">{{ $post_form->title }}</h2>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -16,7 +16,7 @@
                             @if ($post_form->image_path)
                                 <img src="{{ asset('storage/image/' . $post_form->image_path) }}" class="col-md-10">
                             @else
-                                <div class="col-md-4">
+                                <div class="col-md-4 mx-auto">
                                     @include('parts/no_image')
                                 </div>
                             @endif
@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-md-12">
-                            <label>{{ $post_form->body }}</label>
+                            <label class="col-md-8">{{ $post_form->body }}</label>
                         </div>
                     </div>
                 </div>

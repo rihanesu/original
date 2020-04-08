@@ -29,7 +29,7 @@ class HomeController extends Controller
 
     public function home()
     {
-        $posts = Post::orderBy('id', 'desc')->take(3)->get();
+        $posts = Post::orderBy('id', 'desc')->take(4)->get();
 
         return view('home', ['posts' => $posts]);
     }

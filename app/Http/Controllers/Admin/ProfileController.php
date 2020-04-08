@@ -14,24 +14,26 @@ class ProfileController extends Controller
       return view ('admin/profile/create');
     }
 
-    public function edit(Request $request, User $user)
+    public function edit(Request $request)
     {
-        $user = User::find($request->id);
-        if (empty($user)) {
-            abort(404);
-        }
+        $auth = \Auth::user();
 
-        return view('admin/profile/edit', ['user_form' => $user]);
+        return view('admin/profile/edit', ['auth' => $auth]);
     }
 
     public function update(Request $request)
     {
         $this->validate($request, User::$rules);
-        $user = User::find($request->id);
+        $auth = User::find($request->id);
         $user_form = $request->all();
+
         unset($user_form['_token']);
 
-        $user->fill($user_form)->save();
+        if(isset($user_form['password'])) {
+            $user_form['password'] = \Hash::make($user_form['password']);
+        }
+
+        $auth->fill($user_form)->save();
 
         return redirect('admin/user/mypage');
     }

@@ -36,9 +36,7 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3" for="body">本文</label>
-                        <div class="col-md-8">
-                            <textarea class="form-control" name="body" rows="3" maxlength="400" placeholder="全角200文字まで入力可能です">{{ old('body') }}</textarea>
-                        </div>
+                        <textarea class="form-control col-md-8" name="body" rows="3" maxlength="240" placeholder="全角120文字まで入力可能です">{{ old('body') }}</textarea>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3" for="title">画像</label>
@@ -48,7 +46,7 @@
                     </div>
                     {{ csrf_field() }}
                     <div class="col text-center mt-5">
-                        <input type="submit" value="投稿する">
+                        <button type="submit" class="btn btn-primary">投稿する</button>
                     </div>
                 </form>
             </div>

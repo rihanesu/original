@@ -54,10 +54,10 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-md-10 mt-5">
+                        <div class="col-md-12 mt-5">
                             <input type="hidden" name="id" value="{{ $post_form->id }}">
                             {{ csrf_field() }}
-                            <input type="submit" value="更新">
+                            <button type="submit" class="btn btn-primary">更新する</button>
                         </div>
                     </div>
                 </form>
