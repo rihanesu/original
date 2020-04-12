@@ -18,6 +18,7 @@ class PostController extends Controller
         $this->validate($request, Post::$rules);
         $post = new Post;
         $form = $request->all();
+        $post->user_id = $request->user()->id;
 
         if (isset($form['image'])) {
             $path = $request->file('image')->store('public/image');

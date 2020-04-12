@@ -15,9 +15,16 @@ class UserController extends Controller
       return view('admin/user/mypage');
     }
 
-    public function mypage()
+    public function mypage(Request $request)
     {
-        $posts = Post::get();
+        $posts = Post::all()
+        $auth = \Auth::user()->id;
+        $user_id = Post::where('user_id',$auth);
+        if ($user_id == $auth) {
+            $posts->user_id($auth);
+        } else {
+            $posts = null;
+        }
 
         return view('admin/user/mypage',['posts' => $posts]);
     }

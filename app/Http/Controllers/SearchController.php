@@ -20,7 +20,8 @@ class SearchController extends Controller
 
         $posts = Post::where('title', $cond_title)
         ->orWhere('prefecture', $cond_prefecture)
-        ->orWhere('category', $cond_category)->get();
+        ->orWhere('category', $cond_category)
+        ->orWhere('image_path')->get();
 
         return view('search', ['posts' => $posts, 'cond_title' => $cond_title, 'cond_prefecture' => $cond_prefecture, 'cond_category' => $cond_category]);
     }

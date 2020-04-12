@@ -19,6 +19,7 @@ class CreatePostTable extends Migration
             $table->string('prefecture');
             $table->string('category');
             $table->string('body');
+            $table->string('user_id');
             $table->string('image_path')->nullable();
             $table->timestamps();
         });

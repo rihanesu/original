@@ -46,6 +46,7 @@
                     </div>
                     {{ csrf_field() }}
                     <div class="col text-center mt-5">
+                        <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}">
                         <button type="submit" class="btn btn-primary">投稿する</button>
                     </div>
                 </form>

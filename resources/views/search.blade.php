@@ -3,6 +3,9 @@
 
 @section('content')
 <div　class="container">
+    <div class="">
+        <h1>検索ページ</h1>
+    </div>
     <div class="search-content row mx-auto">
         <div class="left-content col-md-6 ml-4">
             <div class="search-now mb-5">
@@ -26,9 +29,9 @@
                 <h3>検索結果</h3>
             </div>
             <div class="search-result overflow-auto" style="height:400px">
-                @foreach ((array)$posts as $post)
+                @foreach ($posts as $post)
                     <div class="search-result-list col-md-12 row">
-                        @if ($posts->image_path)
+                        @if ($post->image_path)
                             <img src="{{ asset('image/top-image1.jpg') }}" class="col-md-4">
                         @else
                             <div class="col-md-4">
@@ -36,10 +39,10 @@
                             </div>
                         @endif
                         <div class="search-about col-md-8">
-                            <label>{{ ($cond_title) }}</label><br>
-                            <label>{{ ($cond_prefecture) }}</label><br>
-                            <label>{{ ($cond_category) }}</label><br>
-                            <a href="{{ action('Admin\PostController@details', ['id' => $posts->id]) }}">見に行く</a>
+                            <label>{{ ($post->title) }}</label><br>
+                            <label>{{ ($post->prefecture) }}</label><br>
+                            <label>{{ ($post->category) }}</label><br>
+                            <a href="{{ action('Admin\PostController@details', ['id' => $post->id]) }}">見に行く</a>
                         </div>
                     </div>
                     <hr>
