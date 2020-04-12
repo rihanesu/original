@@ -17,14 +17,10 @@ class UserController extends Controller
 
     public function mypage(Request $request)
     {
-        $posts = Post::all()
-        $auth = \Auth::user()->id;
-        $user_id = Post::where('user_id',$auth);
-        if ($user_id == $auth) {
-            $posts->user_id($auth);
-        } else {
-            $posts = null;
-        }
+        $user_id = \Auth::id();
+        $query = Post::query();
+        $query->where('user_id', $user_id);
+        $posts = $query->get();
 
         return view('admin/user/mypage',['posts' => $posts]);
     }
