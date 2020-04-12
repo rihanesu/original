@@ -25,7 +25,6 @@
             </select>
         </div>
     </div>
-    <br>
     <div class="search-button col text-center">
         <input type="submit" value="検索する">
     </div>

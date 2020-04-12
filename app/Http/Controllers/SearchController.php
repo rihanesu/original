@@ -18,10 +18,17 @@ class SearchController extends Controller
         $cond_prefecture = $request->cond_prefecture;
         $cond_category = $request->cond_category;
 
-        $posts = Post::where('title', $cond_title)
-        ->orWhere('prefecture', $cond_prefecture)
-        ->orWhere('category', $cond_category)
-        ->orWhere('image_path')->get();
+        $query = Post::query();
+        if ($cond_title != '') {
+            $query->where('title', 'LIKE', "%{$cond_title}%");
+        }
+        if ($cond_prefecture != '') {
+            $query->where('prefecture', $cond_prefecture);
+        }
+        if ($cond_category != '') {
+            $query->where('category', $cond_category);
+        }
+        $posts = $query->get();
 
         return view('search', ['posts' => $posts, 'cond_title' => $cond_title, 'cond_prefecture' => $cond_prefecture, 'cond_category' => $cond_category]);
     }
