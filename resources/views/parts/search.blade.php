@@ -16,7 +16,7 @@
     <div class="form-group row">
         <label class="col-md-3">カテゴリーで検索</label>
         <div class="col-md-8">
-            <select name="cond_category" class="form-control" value="{{ $cond_category}}">
+            <select name="cond_category" class="form-control mb-5" value="{{ $cond_category}}">
                 <option value="スポット"/>スポット</option>
                 <option value="グルメ">グルメ</option>
                 <option value="誰でも">誰でも</option>
@@ -26,6 +26,6 @@
         </div>
     </div>
     <div class="search-button col text-center">
-        <input type="submit" value="検索する">
+        <input type="submit" class="btn btn-primary" value="検索する">
     </div>
 </form>
