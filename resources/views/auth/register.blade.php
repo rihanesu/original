@@ -112,6 +112,7 @@
                         @enderror
                     </div>
                 </div>
+                @csrf
                 <div class="form-group row mt-5">
                     <div class="col text-center">
                         <button type="submit" class="btn btn-primary">

@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <div class="right-content col-md-7 row">
-                            <form action="{{ action('HomeController@home') }}" method="get" enctype="multipart/form-data" class="col-md-12">
+                            <div class="col-md-12">
                                 <div class="content-others-title mb-4 col text-center">
                                     <h4>最新の投稿です</h4>
                                 </div>
@@ -104,7 +104,7 @@
                                         @endforeach
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
