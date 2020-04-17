@@ -17,7 +17,7 @@
                         @foreach ($posts as $post)
                             <div class="col-md-12 row">
                                 @if ($post->image_path)
-                                    <img src="{{ asset('storage/image/' . $post->image_path) }}" class="col-md-4">
+                                    <img src="{{ $post->image_path }}" class="col-md-4">
                                 @else
                                     <div class="col-md-4">
                                         <img src="{{ asset('image/no_image.png') }}">

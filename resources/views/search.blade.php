@@ -32,7 +32,7 @@
                 @foreach ($posts as $post)
                     <div class="search-result-list col-md-12 row">
                         @if ($post->image_path)
-                            <img src="{{ asset('image/top-image1.jpg') }}" class="col-md-4">
+                            <img src="{{ $post->image_path }}" class="col-md-4">
                         @else
                             <div class="col-md-4">
                                 @include('parts/no_image')

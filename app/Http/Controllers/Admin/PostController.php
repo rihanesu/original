@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Comment;
+use Storage;
 
 class PostController extends Controller
 {
@@ -21,8 +22,8 @@ class PostController extends Controller
         $post->user_id = $request->user()->id;
 
         if (isset($form['image'])) {
-            $path = $request->file('image')->store('public/image');
-            $post->image_path = basename($path);
+            $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+            $post->image_path = Storage::disk('s3')->url($path);
         } else {
             $post->image_path = null;
         }

@@ -16,18 +16,7 @@ footer {
 
 section {
   width: 100%;
-  min-height: calc(100vh - (110vw/-12));
-}
-
-section:last-child {
-  position: relative;
-  -webkit-transform: skew(0);
-  -ms-transform: skew(0);
-  transform: skew(0);
-  margin-top: calc(100vw/-12);
-  padding-top: calc(100vw/12);
-  min-height: 100vh;
-  z-index: -1;
+  height: 100%;
 }
 
 section:nth-child(1) {
@@ -40,7 +29,7 @@ section:nth-child(3) {
   background-color: #FFDEAD;
 }
 section:nth-child(4) {
-  background-color: #FFAD90
+  background-color: #D9E5FF
 }
 
 section{
@@ -76,4 +65,8 @@ h1:before {
   border-right-color: transparent;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+}
+
+h4 {
+  background: linear-gradient(transparent 50%, #EEEEEE 50%);
 }

@@ -12,9 +12,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-md-12 ml-5">
+                        <div class="col-md-12">
                             @if ($post_form->image_path)
-                                <img src="{{ asset('storage/image/' . $post_form->image_path) }}" class="col-md-10">
+                                <img src="{{ $post_form->image_path }}" class="col-md-10">
                             @else
                                 <div class="col-md-4 mx-auto">
                                     @include('parts/no_image')
