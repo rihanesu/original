@@ -22,6 +22,7 @@
                 <option value="誰でも">誰でも</option>
                 <option value="ファミリー向け">ファミリー向け</option>
                 <option value="一人でも">一人でも</option>
+                <option value="その他">その他</option>
             </select>
         </div>
     </div>

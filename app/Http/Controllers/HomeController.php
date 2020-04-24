@@ -11,18 +11,19 @@ class HomeController extends Controller
      * Create a new controller instance.
      *
      * @return void
+     *  最初の閲覧ページをhomeにするため、以下コメント化
+     *  public function __construct()
+     *  {
+     *  $this->middleware('auth');
+     *  }
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function add()
     {
         return view('home');
     }

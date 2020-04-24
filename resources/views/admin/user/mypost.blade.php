@@ -42,9 +42,7 @@
                     <div class="form-group row">
                         <label class="col-md-3" for="body">本文</label>
                         <div class="col-md-7">
-                            <textarea class="form-control" name="body" rows="3">
-                                {{ $post_form->body }}
-                            </textarea>
+                            <textarea class="form-control" name="body" rows="3">{{ $post_form->body }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">

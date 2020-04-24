@@ -13,15 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('post/create', 'Admin\PostController@add');
     Route::get('user/mypage', 'Admin\UserController@mypage');
     Route::post('post/create', 'Admin\PostController@create');
-    Route::get('post/details', 'Admin\PostController@details');
     Route::get('post/comment', 'Admin\PostController@comment');
     Route::get('profile/edit', 'Admin\ProfileController@edit');
     Route::get('user/mypost', 'Admin\UserController@mypost');
@@ -30,9 +26,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('profile/edit', 'Admin\ProfileController@update');
 });
 
-Route::get('home', 'HomeController@home');
-Route::get('search', 'SearchController@search');
-
 Auth::routes();
-
-Route::get('/', 'HomeController@home')->name('home');
+Route::get('home','HomeController@home');
+Route::get('/', 'HomeController@home');
+Route::get('search', 'SearchController@search');
+Route::get('admin/post/details', 'Admin\PostController@details');
