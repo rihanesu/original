@@ -68,3 +68,11 @@ h4 {
   background: linear-gradient(transparent 50%, #EEEEEE 50%);
 }
 
+.header-logo {
+  width: 25%;
+}
+
+.footer-logo {
+  width: 30%;
+}
+

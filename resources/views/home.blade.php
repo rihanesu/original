@@ -16,7 +16,7 @@
         <div class="container mx-auto">
             <header>
                 <div class="header row align-items-center">
-                    <div class="header-logo col-md-2" >
+                    <div class="header-logo col-md-2">
                         <img src="{{ asset('image/logo1.png') }}">
                     </div>
                     <div class="header-login col-md-4 ml-auto">
